@@ -107,7 +107,10 @@ def km_from_string(s=''):
         import IPython
     except ImportError:
         raise ImportError("Could not find IPython. " + _install_instructions)
-    from IPython.config.loader import KeyValueConfigLoader
+    try:
+        from traitlets.config.loader import KeyValueConfigLoader
+    except ImportError:
+        from traitl.config.loader import KeyValueConfigLoader
     try:
         from IPython.kernel import (
             KernelManager,
