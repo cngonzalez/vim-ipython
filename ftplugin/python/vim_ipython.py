@@ -93,7 +93,7 @@ def new_ipy(s=''):
         new_ipy()
 
     """
-    from IPython.kernel import KernelManager
+    from jupyter_client import KernelManager
     km = KernelManager()
     km.start_kernel()
     return km_from_string(km.connection_file)
@@ -112,7 +112,7 @@ def km_from_string(s=''):
     except ImportError:
         from traitl.config.loader import KeyValueConfigLoader
     try:
-        from IPython.kernel import (
+        from jupyter_client import (
             KernelManager,
             find_connection_file,
         )
